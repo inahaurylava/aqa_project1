@@ -1,6 +1,4 @@
 # 2. Измените значение, хранимое в переменной var_int, увеличив его в 3.5 раза,результат свяжите с переменной big_int.
-from Lesson_task import new_word
-
 
 def multiplication():
     var_int = 10
