@@ -70,3 +70,21 @@ def sentence(stroka):
 result = sentence("           hi,world        ")
 print(result)
 
+def name_1(*args):
+    return args
+
+args = name_1(5, 8, 7, "hello" )
+print(args)
+print(type(args))
+
+def name_2(**kwargs):
+   return kwargs
+
+kwargs = name_2(a=1,b=5,c=9,d=8)
+print(kwargs)
+print(type(kwargs))
+
+
+
+
+
