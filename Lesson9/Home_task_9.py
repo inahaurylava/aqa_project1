@@ -2,38 +2,40 @@
 
 class Medicine:
 
-    method_of_administration = "inside"
+    method_of_administration_default = "inside"
     medicine_count = 0
 
-    def __init__(self, name, dosage, form, method_of_administration):
+    def __init__(self, name, dosage, form, method_of_administration=None):
         self.name = name
         self.dosage = dosage
         self.form = form
+        self.method_of_administration = Medicine.method_of_administration_default if method_of_administration == None else method_of_administration
         Medicine.medicine_count += 1
 
 print(Medicine.medicine_count)
-tablets = Medicine("Enalapril", "10", "tablet", "")
-print(tablets.name, tablets.dosage, tablets.form, tablets.method_of_administration)
+tablet = Medicine("Enalapril", "10", "tablet", "Outside")
+print(tablet.name, tablet.dosage, tablet.form, tablet.method_of_administration)
 print(Medicine.medicine_count)
-pulveris = Medicine("Nimesil", "100", "pulver", "")
+pulveris = Medicine("Nimesil", "100", "pulver")
 print(pulveris.name, pulveris.dosage, pulveris.form, pulveris.method_of_administration)
 print(Medicine.medicine_count)
-sirups = Medicine("Lazolvan", "30 mg/ml", "sirup", "")
+sirups = Medicine("Lazolvan", "30 mg/ml", "sirup")
 print(sirups.name, sirups.dosage, sirups.form, sirups.method_of_administration)
 print(Medicine.medicine_count)
 
 # Использовать инкапсуляцию
 
 class Plants:
+    tax_amount = 0.15
 
     def __init__(self, name, color, price = 0):
         self.name = name
         self.color = color
         self.__price = price
 
-    def user_price(self, user_p):
+    def set_price(self, user_p):
         if user_p > 0:
-            self.__price += user_p
+            self.__price = user_p + user_p * Plants.tax_amount
             print(f"Цена {user_p}, новая цена {self.__price} ")
         else:
             print("Цена должна быть положительной")
@@ -41,8 +43,8 @@ class Plants:
     def get_price(self):
         return self.__price
 
-type_1 = Plants("orhid", "white", 15)
-type_1.user_price(100)
+type_1 = Plants("orhid", "white")
+type_1.set_price(100)
 print(f"Ваша стоимость {type_1.get_price()}")
 
 
