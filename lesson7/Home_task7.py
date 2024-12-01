@@ -6,11 +6,11 @@ print(sentence("World"))
 #2. Создать lambda функцию , которая принимает на вход список имён и выводит их в формате "Hello, {name}"
 #в другой список.
 
-list_name = lambda input_name: ["Hello," + str(item) for item in input_name]
 
-my_list = ["Sasha", "Masha", "Pasha"]
-new_list = list_name(my_list)
-print(new_list)
+list_name2 = lambda input_name: "Hello, " + input_name
+names = ["Alice", "Bob", "Charlie"]
+greetings = list(map(list_name2, names))
+print(greetings)
 
 #3. Напишите генератор который принимает список numbers =[34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 #и возвращает новый список только с положительными числами
